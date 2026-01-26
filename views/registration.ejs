@@ -30,7 +30,7 @@
       <strong>GitHub repository</strong> with the following components.
     </p>
     <div class="rules-structure">
-      <img src="/images/structure.png" alt="Repository Structure" />
+      <!-- <img src="/images/structure.png" alt="Repository Structure" /> -->
     </div>
     <ul>
       <li>
@@ -68,22 +68,24 @@
         <strong>scripts/</strong>:
         <ul>
           <li>Training script with full reproducibility.</li>
-          <li>Inference script producing COCO-format JSON.</li>
+          <li>...</li>
+          <!-- <li>Inference script producing COCO-format JSON.</li>
           <li>Separate module for data augmentation.</li>
-          <li>Evaluation script calculating all metrics.</li>
+          <li>Evaluation script calculating all metrics.</li> -->
         </ul>
       </li>
       <li>
         <strong>results/</strong>:
         <ul>
           <li>Final <code>predictions.json</code> for the test set.</li>
-          <li><code>metrics.csv</code> with per-class AP/AR metrics.</li>
+          <li>...</li>
+          <!-- <li><code>metrics.csv</code> with per-class AP/AR metrics.</li> -->
         </ul>
       </li>
       <li>
         <strong>reports/</strong>:
         <ul>
-          <li>5-page PDF report including:</li>
+          <li>k-page PDF report including:</li>
           <ul>
             <li>Model architecture diagram</li>
             <li>Training convergence plots</li>
@@ -95,12 +97,11 @@
     <h3>Technical Requirements – Critical Aspects:</h3>
     <ul>
       <li>
-        <strong>Reproducibility:</strong> Must achieve ±1% mAP@50 variation
+        <strong>Reproducibility:</strong> Must achieve ±1% ... variation
         from reported scores when re-run by organizers.
       </li>
       <li>
-        <strong>Annotation Compliance:</strong> Predictions.json must use exact
-        COCO-format with official class IDs.
+        <strong>Annotation Compliance:</strong> Predictions.json must use  ...
       </li>
     </ul>
     <h3>Forbidden Practices:</h3>
@@ -117,8 +118,7 @@
   </p>
   <ul class="rules-details">
     <li>
-      <strong>Performance Metrics</strong>: Mean Average Precision (mAP) at IoU
-      0.5, with separate assessments for all object classes.
+      <strong>Performance Metrics</strong>: ...
     </li>
     <li>
       <strong>Object Detection Performance</strong>: Evaluation will be
