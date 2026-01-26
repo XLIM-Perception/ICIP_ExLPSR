@@ -1,0 +1,78 @@
+<section class="contact">
+  <h2 class="h4">Contact Us</h2>
+  <p>
+    If you have any questions regarding the XLPSR Challenge, feel free to reach
+    out to us using the form below.
+  </p>
+
+  <form id="contactForm" action="/contact" method="POST" class="contact-form">
+    <div class="mb-3">
+      <label for="name" class="form-label"><strong>Name</strong></label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        placeholder="Your Name"
+        class="form-control"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label"><strong>Email</strong></label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        placeholder="Your Email"
+        class="form-control"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="message" class="form-label"><strong>Message</strong></label>
+      <textarea
+        id="message"
+        name="message"
+        rows="5"
+        required
+        placeholder="Your question or message..."
+        class="form-control"
+      ></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Send Message</button>
+  </form>
+</section>
+<script>
+  document
+    .getElementById("contactForm")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const formData = new FormData(form);
+      const data = {
+        name: formData.get("name"),
+        email: formData.get("email"),
+        message: formData.get("message"),
+      };
+
+      fetch("/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((res) => res.json())
+        .then((response) => {
+          alert(response.message); // 🎉 popup here
+          if (response.success) form.reset();
+        })
+        .catch(() => {
+          alert("Something went wrong. Please try again later.");
+        });
+    });
+</script>

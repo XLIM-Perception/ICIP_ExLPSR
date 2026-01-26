@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: icip_gc
+    runtime: node
+    branch: main
+    rootDir: .
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: MONGO_URI
+        sync: false
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASS
+        sync: false

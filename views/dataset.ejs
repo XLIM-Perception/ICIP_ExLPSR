@@ -1,0 +1,36 @@
+<section class="dataset">
+  <h2 class="h4">The IMPROVED Dataset</h2>
+
+  <p>
+    The XLPSR challenge is built upon the proprietary <strong>IMPROVED</strong> dataset
+    (In-the-wild with multi-perspective realistic observations for vehicle evidence and license plate recognition),
+    curated to capture the diversity and complexity of real operational environments.
+  </p>
+
+  <h2 class="h5">Dataset Overview</h2>
+  <ul class="list-unstyled mx-auto" style="max-width:800px; text-align:left">
+    <li>Short real-world video clips (up to 10s) of moving vehicles with French license plates.</li>
+    <li>Multiple acquisition devices (consumer cameras, surveillance cameras, smartphones).</li>
+    <li>Wide range of distances (10–100 meters) and lighting (day, night, transitional).</li>
+    <li>Weather variation (clear, cloudy) and large viewpoint variability (frontal, oblique, steep angle).</li>
+    <li>Strong natural degradations (motion blur, sensor noise, compression).</li>
+  </ul>
+
+  <p>Each video is paired with:</p>
+  <ul class="list-unstyled mx-auto" style="max-width:800px; text-align:left">
+    <li>Low-resolution input frames <code>\mathbf{I}_{LR}</code> extracted from the video.</li>
+    <li>Ground-truth license plate text (character string).</li>
+  </ul>
+
+  <p>No high-resolution clean frame is provided. The challenge evaluates <strong>text reconstruction accuracy</strong> rather than pixel-level fidelity.</p>
+
+  <!-- Object category list removed (from previous dataset). -->
+  <h2 class="h5">Data Split and Training Policy</h2>
+  <ul class="list-unstyled mx-auto" style="max-width:800px; text-align:left">
+    <li><strong>Training policy:</strong> Participants may use any external data (synthetic/public/proprietary). Only official test sets are restricted.</li>
+    <li><strong>Public validation set:</strong> Representative subset with LR frames and ground-truth text for local validation and public leaderboard.</li>
+    <li><strong>Private blind test set:</strong> Unseen videos with similar diversity; organizers run submissions to generate final CER scores.</li>
+  </ul>
+
+  <!-- Optional illustrative figure can be added here when available -->
+</section>

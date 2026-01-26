@@ -1,0 +1,282 @@
+<section>
+  <h2 class="h4">Rules & Participation</h2>
+  <p>
+    Participation is open to all researchers worldwide. Free registration through the official challenge platform is required.
+    Participants may use unlimited external data but must disclose it.
+  </p>
+
+  <div class="rules-details">
+    <h3>Registration Required</h3>
+    <p>
+      All participants must register to join the challenge. After registration,
+      you'll receive essential credentials and updates.
+      <br />
+      &#128073; <a href="#registration">Register here</a>
+    </p>
+    <h3>Track Your Progress</h3>
+    <p>
+      Submit your interim results through our Results Portal to view your
+      temporary ranking. A password is required (you will receive it after
+      registration).
+      <br />
+      &#128073; <a href="/results">Submit results</a>
+    </p>
+    <!-- Submission format will be communicated on the platform; sample files removed. -->
+
+    <h3>&#127942; Final Submission Requirements</h3>
+    <p>Your GitHub repository MUST follow this exact structure:</p>
+    <p>
+      To ensure consistency and fairness in the evaluation process, top submissions must include a
+      <strong>GitHub repository</strong> with the following components.
+    </p>
+    <div class="rules-structure">
+      <img src="/images/structure.png" alt="Repository Structure" />
+    </div>
+    <ul>
+      <li>
+        <strong>README.md</strong>: Must contain:
+        <ul>
+          <li>
+            Hardware/software requirements (e.g., CUDA version, GPU memory).
+          </li>
+          <li>Step-by-step execution commands with example parameters.</li>
+          <li>Validation scores achieved during development.</li>
+          <li>
+            Dependency installation instructions (preferably using virtual
+            environment).
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>requirements.txt</strong>: Frozen dependencies with exact
+        versions (e.g., <code>torch==2.1.0</code>).
+      </li>
+      <li>
+        <strong>data/</strong>: Empty directories with
+        <code>instructions.md</code> explaining the directory structure for
+        generated images (if using augmentation).
+      </li>
+      <li>
+        <strong>models/</strong>:
+        <ul>
+          <li>Pre-trained weights (.pth, .pt, .h5).</li>
+          <li>Architecture file with all layer details.</li>
+          <li>Config file with readable hyperparameters.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>scripts/</strong>:
+        <ul>
+          <li>Training script with full reproducibility.</li>
+          <li>Inference script producing COCO-format JSON.</li>
+          <li>Separate module for data augmentation.</li>
+          <li>Evaluation script calculating all metrics.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>results/</strong>:
+        <ul>
+          <li>Final <code>predictions.json</code> for the test set.</li>
+          <li><code>metrics.csv</code> with per-class AP/AR metrics.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>reports/</strong>:
+        <ul>
+          <li>5-page PDF report including:</li>
+          <ul>
+            <li>Model architecture diagram</li>
+            <li>Training convergence plots</li>
+            <li>Error analysis with confusion matrix</li>
+          </ul>
+        </ul>
+      </li>
+    </ul>
+    <h3>Technical Requirements – Critical Aspects:</h3>
+    <ul>
+      <li>
+        <strong>Reproducibility:</strong> Must achieve ±1% mAP@50 variation
+        from reported scores when re-run by organizers.
+      </li>
+      <li>
+        <strong>Annotation Compliance:</strong> Predictions.json must use exact
+        COCO-format with official class IDs.
+      </li>
+    </ul>
+    <h3>Forbidden Practices:</h3>
+    <ul>
+      <li>Manual annotation of any generated images.</li>
+      <li>External data not documented in report.</li>
+    </ul>
+  </div>
+
+  <h2>Criteria</h2>
+  <p>
+    To decide the winner of this Challenge, the organizing committee will
+    consider the following items:
+  </p>
+  <ul class="rules-details">
+    <li>
+      <strong>Performance Metrics</strong>: Mean Average Precision (mAP) at IoU
+      0.5, with separate assessments for all object classes.
+    </li>
+    <li>
+      <strong>Object Detection Performance</strong>: Evaluation will be
+      conducted on both frequent and rare classes to ensure robustness across
+      the dataset.
+    </li>
+    <li>
+      <strong>Reproducibility</strong>: All results must be reproducible using
+      provided scripts and models.
+    </li>
+    <li>
+      <strong>Class-wide Performance</strong>: Balanced performance across all
+      classes is essential.
+    </li>
+  </ul>
+  <h2 class="h5">Reproducibility Requirements</h2>
+  <ul class="list-unstyled mx-auto" style="max-width:900px; text-align:left">
+    <li>Submit full inference code, including environment specification and pretrained weights.</li>
+    <li>Submissions must run on standard GPU hardware without manual intervention.</li>
+    <li>Mandatory 2-page extended abstract describing model architecture, training strategy, external data sources, and any degradation modeling.</li>
+  </ul>
+
+  <h2 class="h5">Rules for Participation</h2>
+  <ul class="list-unstyled mx-auto" style="max-width:900px; text-align:left">
+    <li>Participation open globally; registration required.</li>
+    <li>Unlimited external data permitted with disclosure.</li>
+    <li>Manual annotation/manipulation of test data is prohibited.</li>
+    <li>All submissions must include: model + inference code, extended abstract, and outputs for the public validation set.</li>
+  </ul>
+
+  <h2 id="registration" class="h4">Registration</h2>
+
+  <form class="registration-form" action="/submit-registration" method="POST">
+    <div class="mb-3">
+      <label for="teamName" class="form-label"><strong>Team Name</strong></label>
+      <input type="text" class="form-control" name="teamName" placeholder="Team Name" required />
+    </div>
+
+    <div id="members-container" class="row g-3">
+      <div class="member-form col-12">
+        <h4 class="h6">Team Member 1</h4>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <input
+              type="text"
+              class="form-control"
+              name="firstName[]"
+              placeholder="First Name"
+              required
+              pattern="[A-Za-zÀ-ÿ\s\-]+"
+              title="Letters only"
+            />
+          </div>
+          <div class="col-md-6">
+            <input
+              type="text"
+              class="form-control"
+              name="lastName[]"
+              placeholder="Last Name"
+              required
+              pattern="[A-Za-zÀ-ÿ\s\-]+"
+              title="Letters only"
+            />
+          </div>
+          <div class="col-md-6">
+            <input type="email" class="form-control" name="email[]" placeholder="Email" required />
+          </div>
+          <div class="col-md-6">
+            <input
+              type="text"
+              class="form-control"
+              name="institute[]"
+              placeholder="Institute / Organization"
+              required
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex gap-2 mt-3">
+      <button type="button" id="add-member" class="btn btn-outline-secondary">+ Add Team Member</button>
+      <button type="submit" class="btn btn-primary">Submit Registration</button>
+    </div>
+  </form>
+</section>
+<script>
+  document
+    .querySelector(".registration-form")
+    .addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      // Handle arrays like firstName[] properly
+      ["firstName", "lastName", "email", "institute"].forEach((key) => {
+        data[key] = formData.getAll(`${key}[]`);
+      });
+
+      try {
+        const response = await fetch("/submit-registration", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+
+        alert(result.message);
+
+        if (result.success) {
+          form.reset();
+          // optionally window.location.href = '/'; if needed
+        }
+      } catch (err) {
+        alert("Something went wrong. Please try again.");
+      }
+    });
+</script>
+<script>
+  let memberCount = 1;
+  const maxMembers = 5;
+
+  document.getElementById("add-member").addEventListener("click", () => {
+    if (memberCount >= maxMembers) return;
+
+    memberCount++;
+    const container = document.getElementById("members-container");
+    const newMember = document.createElement("div");
+    newMember.classList.add("member-form", "col-12");
+    newMember.innerHTML = `
+      <h4 class="h6">Team Member ${memberCount}</h4>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <input type="text" class="form-control" name="firstName[]" placeholder="First Name" required pattern="[A-Za-zÀ-ÿ\\s\\-]+" title="Letters only" />
+        </div>
+        <div class="col-md-6">
+          <input type="text" class="form-control" name="lastName[]" placeholder="Last Name" required pattern="[A-Za-zÀ-ÿ\\s\\-]+" title="Letters only" />
+        </div>
+        <div class="col-md-6">
+          <input type="email" class="form-control" name="email[]" placeholder="Email" required />
+        </div>
+        <div class="col-md-6">
+          <input type="text" class="form-control" name="institute[]" placeholder="Institute / Organization" required />
+        </div>
+        <div class="col-12">
+          <button type="button" class="btn btn-sm btn-outline-danger remove-member">Remove</button>
+        </div>
+      </div>
+    `;
+    container.appendChild(newMember);
+    newMember.querySelector(".remove-member").addEventListener("click", () => {
+      container.removeChild(newMember);
+      memberCount--;
+    });
+  });
+</script>

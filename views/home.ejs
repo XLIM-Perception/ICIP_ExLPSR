@@ -1,0 +1,30 @@
+<section class="overview">
+  <h2 class="h4">Overview</h2>
+  <p>
+    The Extreme In-The-Wild License Plate Super-Resolution (XLPSR) Challenge benchmarks
+    reconstructing readable license plates from highly degraded video frames. Participants design a model
+    \(\hat{\mathbf{I}}_{HR} = \mathcal{G}(\mathbf{I}_{LR})\) with magnification factors ranging from 8× to 16×.
+    The focus is on <strong>real-world video frames</strong> with motion blur, compression artifacts, noise,
+    and viewpoint variability. Models must recover character-level details <em>without hallucination</em>, ensuring reliability
+    for downstream license plate recognition.
+  </p>
+  <p>
+    Frames may be processed independently or by exploiting temporal information across consecutive frames.
+    Enhancement modules (denoising, deblurring, dehazing) are allowed.
+  </p>
+</section>
+
+<section class="significance">
+  <h2 class="h4">Significance</h2>
+  <p><strong>Pushing SR into extreme regimes:</strong> Unlike common SR challenges (NTIRE, AIM), XLPSR addresses 8×–16× magnification under severe real-world degradations, motivating attention, diffusion-based SR, and degradation-aware pipelines.</p>
+  <p><strong>High-impact application:</strong> Readable plates are critical for ITS, security, and forensics. The primary automated metric prioritizes functional correctness over purely perceptual quality.</p>
+  <p><strong>Hallucination-free generation:</strong> OCR-based evaluation encourages fidelity and avoids plausible but incorrect characters, aligning with reliability in generative models.</p>
+</section>
+
+<section class="overview">
+  <h2 class="h4">Evaluation Protocol</h2>
+  <p><strong>Stage 1 — Automated Screening:</strong> An external OCR engine (fixed and disclosed) computes Character Error Rate (CER) as normalized Levenshtein distance; a Visual Quality Metric (VQM) such as BRISQUE/NIQE/MUSIQ is also computed. Combined score:</p>
+  <pre class="mb-2">S = α · CER + β · VQM</pre>
+  <p>The top submissions advance to Stage 2.</p>
+  <p><strong>Stage 2 — Expert Evaluation:</strong> A panel evaluates visual realism, plausibility, conformity to official plate structure, geometry preservation, absence of hallucinations/artifacts, and overall fidelity. <strong>Winners are selected solely via expert evaluation.</strong></p>
+</section>
