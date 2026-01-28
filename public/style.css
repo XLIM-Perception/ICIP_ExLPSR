@@ -72,7 +72,7 @@ main {
 }
 
 .hero {
-  background: url(/images/cover_image.png)center/cover no-repeat;
+  background: url(/images/cover_image.jpg)center/cover no-repeat;
   color: #fff;
   padding: 100px 20px;
   height: 275px;
