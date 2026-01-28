@@ -71,6 +71,11 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+// Contact email recipient (can be different from auth user)
+// Defaults to the organizer inbox
+const CONTACT_TO = process.env.CONTACT_TO || "xlim.perception@gmail.com";
+
+
 // Connect Mongoose
 
 
