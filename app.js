@@ -75,6 +75,11 @@ const transporter = nodemailer.createTransport({
 // Defaults to the organizer inbox
 const CONTACT_TO = process.env.CONTACT_TO || "xlim.perception@gmail.com";
 
+// On startup, verify SMTP auth to aid diagnostics in logs
+transporter
+  .verify()
+  .then(() => console.log("SMTP: transporter verified and ready"))
+  .catch((err) => console.error("SMTP: verification failed ->", err && err.message ? err.message : err));
 
 // Connect Mongoose
 
